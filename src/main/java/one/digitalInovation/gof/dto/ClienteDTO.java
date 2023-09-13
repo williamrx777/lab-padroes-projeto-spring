@@ -50,11 +50,5 @@ public class ClienteDTO {
     }
 
 
-    @Override
-    public String toString() {
-        return "ClienteDTO{" +
-                ", nome='" + nome + '\'' +
-                ", endereco=" + endereco +
-                '}';
-    }
+
 }

@@ -1,6 +1,7 @@
 package one.digitalInovation.gof.controller;
 
 import one.digitalInovation.gof.dto.ClienteDTO;
+import one.digitalInovation.gof.model.Cliente;
 import one.digitalInovation.gof.service.ClienteService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -33,7 +34,7 @@ public class ClienteController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<ClienteDTO> atualizar(@PathVariable long id, @RequestBody ClienteDTO cliente){
+    public ResponseEntity<Cliente> atualizar(@PathVariable Long id, @RequestBody Cliente cliente) {
         service.atualizar(id, cliente);
         return ResponseEntity.ok(cliente);
     }

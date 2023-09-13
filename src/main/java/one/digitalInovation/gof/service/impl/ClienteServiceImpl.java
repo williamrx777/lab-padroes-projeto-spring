@@ -47,14 +47,11 @@ public class ClienteServiceImpl implements ClienteService {
     }
 
     @Override
-    public Cliente atualizar(long id, ClienteDTO clienteDTO) {
-        Optional<Cliente> cliente0 = clienteRepository.findById(id);
-        if (cliente0.isEmpty()){
-            return null;
-        }else{
-            var cliente = cliente0.get();
-            BeanUtils.copyProperties(clienteDTO,cliente);
-            return cliente;
+    public void atualizar(long id, Cliente cliente) {
+        // Buscar Cliente por ID, caso exista:
+        Optional<Cliente> clienteBd = clienteRepository.findById(id);
+        if (clienteBd.isPresent()) {
+            salvarClienteComCep(cliente);
         }
     }
 
